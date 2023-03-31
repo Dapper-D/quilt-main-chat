@@ -28,7 +28,7 @@ import {
 
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import Profile from "./AccountPage/Form/Profile";
+// import Profile from "./AccountPage/Form/Profile";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -422,7 +422,8 @@ export default function VerticalTabs() {
         Item Four
       </TabPanel>
       <TabPanel value={value} index={5}>
-        <Profile />
+        {/* <Profile /> */}
+        profile
       </TabPanel>
       <TabPanel value={value} index={6}>
         Item Six
