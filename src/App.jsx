@@ -5,8 +5,8 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import "./App.css";
-import Image from "next/image";
-import images from "../../../img";
+// import Image from "next/image";
+import images from "./component/img";
 import {
   Button,
   Divider,
@@ -167,32 +167,79 @@ function TabPanel(props) {
                   </div>
                 </ListItemText>
               </MenuItem>
-              <MenuItem>
+              <MenuItem
+                sx={{
+                  marginLeft: "2rem",
+                  marginBottom: "1rem",
+                  paddingLeft: "1rem",
+                  paddingBottom: "1rem",
+                  borderLeft: "2px solid #5cb282",
+                  borderBottom: "2px dashed #5cb282",
+                }}
+              >
+                <img
+                  src={images.metamask}
+                  alt="metamask"
+                  style={{ width: "60px" }}
+                />
                 <ListItemText inset>
-                  <Image
-                    src={images.metamask}
-                    alt="metamask"
-                    width={100}
-                    height={100}
-                    className={Style.connectWallet_box_provider_item_img}
-                  />
-                  <p>Metamask</p>
+                  <p style={{ fontSize: "16px" }}>Metamask</p>
                 </ListItemText>
               </MenuItem>
-              <MenuItem>
-                <ListItemText inset>Double</ListItemText>
+
+              <MenuItem
+                sx={{
+                  marginLeft: "2rem",
+                  marginBottom: "1rem",
+                  paddingLeft: "1rem",
+                  paddingBottom: "1rem",
+                  borderLeft: "2px solid #5cb282",
+                  borderBottom: "2px dashed #5cb282",
+                }}
+              >
+                <img src={images.tezos} alt="tezos" style={{ width: "60px" }} />
+                <ListItemText inset>
+                  <p style={{ fontSize: "16px" }}>tezos</p>
+                </ListItemText>
               </MenuItem>
-              <MenuItem>Custom: 1.2</MenuItem>
-              <Divider />
-              <MenuItem>
-                <ListItemText>Add space before paragraph</ListItemText>
+
+              <MenuItem
+                sx={{
+                  marginLeft: "2rem",
+                  marginBottom: "1rem",
+                  paddingLeft: "1rem",
+                  paddingBottom: "1rem",
+                  borderLeft: "2px solid #5cb282",
+                  borderBottom: "2px dashed #5cb282",
+                }}
+              >
+                <img
+                  src={images.unstoppable}
+                  alt="unstoppable"
+                  style={{ width: "60px" }}
+                />
+                <ListItemText inset>
+                  <p style={{ fontSize: "16px" }}>unstoppable</p>
+                </ListItemText>
               </MenuItem>
-              <MenuItem>
-                <ListItemText>Add space after paragraph</ListItemText>
-              </MenuItem>
-              <Divider />
-              <MenuItem>
-                <ListItemText>Custom spacing...</ListItemText>
+
+              <MenuItem
+                sx={{
+                  marginLeft: "2rem",
+                  paddingLeft: "1rem",
+                  paddingBottom: "1rem",
+                  borderLeft: "2px solid #5cb282",
+                  // borderBottom: "2px dashed #5cb282",
+                }}
+              >
+                <img
+                  src={images.solana}
+                  alt="solana"
+                  style={{ width: "60px" }}
+                />
+                <ListItemText inset>
+                  <p style={{ fontSize: "16px" }}>solana</p>
+                </ListItemText>
               </MenuItem>
             </MenuList>
           </Menu>
