@@ -5,6 +5,8 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import "./App.css";
+import Image from "next/image";
+import images from "../../../img";
 import {
   Button,
   Divider,
@@ -32,6 +34,8 @@ import MenuItem from "@mui/material/MenuItem";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
+
+  // for etherium
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -39,6 +43,16 @@ function TabPanel(props) {
   };
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  // for connect walletconnect
+  const [anchorE2, setAnchorE2] = React.useState(null);
+  const opened = Boolean(anchorE2);
+  const handleClock = (event) => {
+    setAnchorE2(event.currentTarget);
+  };
+  const handleClosed = () => {
+    setAnchorE2(null);
   };
 
   return (
@@ -60,42 +74,171 @@ function TabPanel(props) {
           borderBottom: "1px solid rgb(59,59,64)",
         }}
       >
-        <Button
-          id="basic-button"
-          aria-controls={open ? "basic-menu" : undefined}
-          aria-haspopup="true"
-          aria-expanded={open ? "true" : undefined}
-          onClick={handleClick}
+        <div
           style={{
-            marginRight: "1rem",
+            width: "40%",
+            // backgroundColor: "blue",
+            display: "flex",
+            justifyContent: "space-between",
           }}
         >
-          <span>
-            <div
+          <Button
+            sx={{
+              color: "var(--font-color-unfocused)",
+              "&:hover": {
+                color: "var(--font_color_focused)",
+              },
+              borderRadius: "10px",
+              border: "1px solid rgb(4,227,106)",
+              padding: "0 1rem",
+            }}
+            id="button"
+            aria-controls={opened ? "menu" : undefined}
+            aria-haspopup="true"
+            aria-expanded={opened ? "true" : undefined}
+            onClick={handleClock}
+          >
+            Connect Wallet
+          </Button>
+
+          <Menu
+            style={{
+              marginTop: "1rem",
+              // borderRadius: "40px",
+            }}
+            id="menu"
+            anchorEl={anchorE2}
+            open={opened}
+            onClose={handleClosed}
+            MenuListProps={{
+              "aria-labelledby": "button",
+            }}
+          >
+            <MenuList
+              dense
+              className="
+              color-change-3x"
+              sx={{
+                width: "28rem",
+                height: "30rem",
+                marginTop: -1,
+                marginBottom: -1,
+                padding: "1rem 0",
+                paddingTop: 0,
+                color: "var(--font_color_focused)",
+                // borderRadius: "40px",
+              }}
+            >
+              <MenuItem>
+                <ListItemText
+                  // inset
+                  sx={{
+                    textAlign: "center",
+                    "&:hover": { cursor: "default" },
+                    paddingTop: "1rem",
+                    paddingBottom: "1rem",
+                    // paddingRight: "2rem",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "bold",
+                        paddingBottom: ".7rem",
+                        // color: "var(--font_color_focused)",
+                      }}
+                    >
+                      Connect to a Wallet
+                    </span>
+                    {/* <br /> */}
+                    <span style={{ fontSize: "12px" }}>
+                      By connecting to a wallet, i agree to Quilt's Terms of
+                      Use,
+                      <br />
+                      Cookies Policy, use of 3rd party services and Privacy
+                      Policy.
+                    </span>
+                  </div>
+                </ListItemText>
+              </MenuItem>
+              <MenuItem>
+                <ListItemText inset>
+                  <Image
+                    src={images.metamask}
+                    alt="metamask"
+                    width={100}
+                    height={100}
+                    className={Style.connectWallet_box_provider_item_img}
+                  />
+                  <p>Metamask</p>
+                </ListItemText>
+              </MenuItem>
+              <MenuItem>
+                <ListItemText inset>Double</ListItemText>
+              </MenuItem>
+              <MenuItem>Custom: 1.2</MenuItem>
+              <Divider />
+              <MenuItem>
+                <ListItemText>Add space before paragraph</ListItemText>
+              </MenuItem>
+              <MenuItem>
+                <ListItemText>Add space after paragraph</ListItemText>
+              </MenuItem>
+              <Divider />
+              <MenuItem>
+                <ListItemText>Custom spacing...</ListItemText>
+              </MenuItem>
+            </MenuList>
+          </Menu>
+          <Button
+            id="basic-button"
+            aria-controls={open ? "basic-menu" : undefined}
+            aria-haspopup="true"
+            aria-expanded={open ? "true" : undefined}
+            onClick={handleClick}
+            style={{
+              marginRight: "1rem",
+            }}
+          >
+            <span
+              style={
+                {
+                  // backgroundColor: "red "
+                }
+              }
+            >
+              <div
+                style={{
+                  color: "var(--font_color_focused)",
+                  fontSize: "15px",
+                  lineHeight: "1rem",
+                }}
+              >
+                0x4c99...923bd
+              </div>
+              <p
+                style={{
+                  textAlign: "left",
+                  color: "var(--font-color-unfocused)",
+                  fontSize: "13px",
+                }}
+              >
+                Etherium
+              </p>
+            </span>
+            <KeyboardArrowRight
               style={{
                 color: "var(--font_color_focused)",
-                fontSize: "15px",
-                lineHeight: "1rem",
               }}
-            >
-              0x4c99...923bd
-            </div>
-            <p
-              style={{
-                textAlign: "left",
-                color: "var(--font-color-unfocused)",
-                fontSize: "13px",
-              }}
-            >
-              Etherium
-            </p>
-          </span>
-          <KeyboardArrowRight
-            style={{
-              color: "var(--font_color_focused)",
-            }}
-          />
-        </Button>
+            />
+          </Button>
+        </div>
         <Menu
           id="basic-menu"
           anchorEl={anchorEl}
