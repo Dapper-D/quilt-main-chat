@@ -92,11 +92,23 @@ function TabPanel(props) {
     }
   };
 
+  // combine polygon and close function
+  const handlePolygon = () => {
+    handleClosed();
+    connectWallet();
+  };
+
   //connect tezos
   const connectTezos = async () => {
     const address = await connectTez();
     login(address);
     setNetwork("tezos");
+  };
+
+  // combine tezos and close function
+  const handleTezos = () => {
+    handleClosed();
+    connectTezos();
   };
 
   return (
@@ -120,7 +132,7 @@ function TabPanel(props) {
       >
         <div
           style={{
-            width: "40%",
+            // width: "40%",
             // backgroundColor: "blue",
             display: "flex",
             justifyContent: "space-between",
@@ -219,12 +231,12 @@ function TabPanel(props) {
                   borderLeft: "2px solid #5cb282",
                   borderBottom: "2px dashed #5cb282",
                 }}
+                onClick={() => handlePolygon()}
               >
                 <img
                   src="/img/metamask.png"
                   alt="metamask"
                   style={{ width: "60px" }}
-                  onClick={() => connectWallet()}
                 />
                 <ListItemText inset>
                   <p style={{ fontSize: "16px" }}>Metamask</p>
@@ -240,12 +252,12 @@ function TabPanel(props) {
                   borderLeft: "2px solid #5cb282",
                   borderBottom: "2px dashed #5cb282",
                 }}
+                onClick={() => handleTezos()}
               >
                 <img
                   src={"/img/tezos.png"}
                   alt="tezos"
                   style={{ width: "60px" }}
-                  onClick={() => connectTezos()}
                 />
                 <ListItemText inset>
                   <p style={{ fontSize: "16px" }}>tezos</p>
@@ -299,21 +311,25 @@ function TabPanel(props) {
             aria-expanded={open ? "true" : undefined}
             onClick={handleClick}
             style={{
+              display: "flex",
+              justifyContent: "right",
               marginRight: "1rem",
+              width: "30%",
+              // backgroundColor: "red ",
             }}
           >
             <span
-              style={
-                {
-                  // backgroundColor: "red "
-                }
-              }
+              style={{
+                width: "90%",
+              }}
             >
               <div
                 style={{
                   color: "var(--font_color_focused)",
-                  fontSize: "15px",
+                  fontSize: "10px",
                   lineHeight: "1rem",
+                  // width: "30%",
+                  overflowX: "clip",
                 }}
               >
                 {address}
