@@ -443,7 +443,7 @@ export default function VerticalTabs() {
             // backgroundColor: "red",
           }}
         >
-          <img
+          <Image
             src={"../logo.svg"}
             alt="Quilt"
             style={{

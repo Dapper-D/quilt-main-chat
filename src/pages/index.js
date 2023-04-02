@@ -158,8 +158,7 @@ function TabPanel(props) {
                     </span>
                     {/* <br /> */}
                     <span style={{ fontSize: "12px" }}>
-                      By connecting to a wallet, i agree to Quilt's Terms of
-                      Use,
+                      By connecting to a wallet, i agree to Quilts Terms of Use,
                       <br />
                       Cookies Policy, use of 3rd party services and Privacy
                       Policy.
