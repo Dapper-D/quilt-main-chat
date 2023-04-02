@@ -5,7 +5,7 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import "./App.css";
-// import Image from "next/image";
+import Image from "next/image";
 import images from "./component/img";
 import {
   Button,
@@ -177,7 +177,7 @@ function TabPanel(props) {
                   borderBottom: "2px dashed #5cb282",
                 }}
               >
-                <img
+                <Image
                   src={images.metamask}
                   alt="metamask"
                   style={{ width: "60px" }}
@@ -197,7 +197,11 @@ function TabPanel(props) {
                   borderBottom: "2px dashed #5cb282",
                 }}
               >
-                <img src={images.tezos} alt="tezos" style={{ width: "60px" }} />
+                <Image
+                  src={images.tezos}
+                  alt="tezos"
+                  style={{ width: "60px" }}
+                />
                 <ListItemText inset>
                   <p style={{ fontSize: "16px" }}>tezos</p>
                 </ListItemText>
@@ -213,7 +217,7 @@ function TabPanel(props) {
                   borderBottom: "2px dashed #5cb282",
                 }}
               >
-                <img
+                <Image
                   src={images.unstoppable}
                   alt="unstoppable"
                   style={{ width: "60px" }}
@@ -232,7 +236,7 @@ function TabPanel(props) {
                   // borderBottom: "2px dashed #5cb282",
                 }}
               >
-                <img
+                <Image
                   src={images.solana}
                   alt="solana"
                   style={{ width: "60px" }}
