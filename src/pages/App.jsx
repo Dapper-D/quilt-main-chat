@@ -4,9 +4,9 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import "./App.css";
-import Image from "next/image";
-import images from "../../public/img";
+// import "./App.css";
+// import Image from "next/image";
+// import images from "../../public/img";
 import {
   Button,
   Divider,
@@ -176,8 +176,8 @@ function TabPanel(props) {
                   borderBottom: "2px dashed #5cb282",
                 }}
               >
-                <Image
-                  src={images.metamask}
+                <img
+                  src="/img/metamask.png"
                   alt="metamask"
                   style={{ width: "60px" }}
                 />
@@ -196,8 +196,8 @@ function TabPanel(props) {
                   borderBottom: "2px dashed #5cb282",
                 }}
               >
-                <Image
-                  src={images.tezos}
+                <img
+                  src={"/img/tezos.png"}
                   alt="tezos"
                   style={{ width: "60px" }}
                 />
@@ -216,8 +216,8 @@ function TabPanel(props) {
                   borderBottom: "2px dashed #5cb282",
                 }}
               >
-                <Image
-                  src={images.unstoppable}
+                <img
+                  src={"/img/unstoppable.png"}
                   alt="unstoppable"
                   style={{ width: "60px" }}
                 />
@@ -235,8 +235,8 @@ function TabPanel(props) {
                   // borderBottom: "2px dashed #5cb282",
                 }}
               >
-                <Image
-                  src={images.solana}
+                <img
+                  src={"/img/solana.png"}
                   alt="solana"
                   style={{ width: "60px" }}
                 />
@@ -443,8 +443,8 @@ export default function VerticalTabs() {
             // backgroundColor: "red",
           }}
         >
-          <Image
-            src={"../logo.svg"}
+          <img
+            src={"/img/quilt-logo.svg"}
             alt="Quilt"
             style={{
               width: "5rem",
