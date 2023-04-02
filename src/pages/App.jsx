@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import "./App.css";
 import Image from "next/image";
-import images from "./component/img";
+import images from "../../public/img";
 import {
   Button,
   Divider,
