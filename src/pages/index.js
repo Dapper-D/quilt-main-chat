@@ -4,6 +4,7 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import { ethers } from "ethers";
 // import "./App.css";
 // import Image from "next/image";
 // import images from "../../public/img";
@@ -32,9 +33,17 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 // import Profile from "./AccountPage/Form/Profile";
 
+import { connectTez } from "../../component/Context/tezos";
+import { useUserData } from "../../component/Context/useUserData";
+
+// import { NFTMarketplaceContext } from "../../component/Context/NFTMarketplaceContext";
+
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
-
+  const address = useUserData((state) => state.address);
+  const network = useUserData((state) => state.network);
+  const login = useUserData((state) => state.login);
+  const setNetwork = useUserData((state) => state.setNetwork);
   // for etherium
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -53,6 +62,41 @@ function TabPanel(props) {
   };
   const handleClosed = () => {
     setAnchorE2(null);
+  };
+  //polygon
+  const connectWallet = async () => {
+    try {
+      if (!window.ethereum)
+        return setOpenError(true), setError("Install MetaMask");
+
+      const accounts = await window.ethereum.request({
+        method: "eth_requestAccounts",
+      });
+      // setCurrentAccount(accounts[0]);
+      login(accounts[0]);
+      setNetwork("polygon");
+      // window.location.reload();
+      if (accounts.length) {
+        // setCurrentAccount(accounts[0]);
+        login(accounts[0]);
+      } else {
+        console.log("error");
+      }
+
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const getBalance = await provider.getBalance(accounts[0]);
+      const bal = ethers.utils.formatEther(getBalance);
+      setAccountBalance(bal);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  //connect tezos
+  const connectTezos = async () => {
+    const address = await connectTez();
+    login(address);
+    setNetwork("tezos");
   };
 
   return (
@@ -180,6 +224,7 @@ function TabPanel(props) {
                   src="/img/metamask.png"
                   alt="metamask"
                   style={{ width: "60px" }}
+                  onClick={() => connectWallet()}
                 />
                 <ListItemText inset>
                   <p style={{ fontSize: "16px" }}>Metamask</p>
@@ -200,6 +245,7 @@ function TabPanel(props) {
                   src={"/img/tezos.png"}
                   alt="tezos"
                   style={{ width: "60px" }}
+                  onClick={() => connectTezos()}
                 />
                 <ListItemText inset>
                   <p style={{ fontSize: "16px" }}>tezos</p>
@@ -270,7 +316,7 @@ function TabPanel(props) {
                   lineHeight: "1rem",
                 }}
               >
-                0x4c99...923bd
+                {address}
               </div>
               <p
                 style={{
@@ -279,7 +325,7 @@ function TabPanel(props) {
                   fontSize: "13px",
                 }}
               >
-                Etherium
+                {network}
               </p>
             </span>
             <KeyboardArrowRight

@@ -6,7 +6,7 @@ import { char2Bytes } from "@taquito/utils";
 
 import { useUserData } from "./useUserData";
 import { getNft } from "./taqito";
-import { loadState } from "../components/Loader/loading";
+
 // Setup Tezos Toolkit
 
 export const tezos = new TezosToolkit("https://ghostnet.smartpy.io");
@@ -51,7 +51,7 @@ export const mintTez = async (user, uri, price, quantity, router, setLoad) => {
 
   getNft(uri).then((e) => {
     Object.entries(e).forEach((entry) => {
-      const [key, value] = entry;
+      let [key, value] = entry;
       value = value.toString();
       key = key.toString();
       metadata[key] = char2Bytes(value);
@@ -62,7 +62,7 @@ export const mintTez = async (user, uri, price, quantity, router, setLoad) => {
     console.log("Waiting for wallet confirmation...");
     // const batch = tezos.wallet.batch(transactions);
     getNft(url).then((storage) => {
-      const token_id = storage.all_tokens;
+      let token_id = storage.all_tokens;
       token_id = Number(token_id);
 
       fa2Contract.methods

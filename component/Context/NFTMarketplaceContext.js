@@ -38,10 +38,10 @@ import {
   transferFundsABI,
 } from "./constants";
 import { useUserData } from "./useUserData";
-import { loadState } from "../components/Loader/loading";
+
 import { mintTez } from "./tezos";
 import { formatIPFSURL } from "./taqito";
-import Loading from "../components/NewDesignComp/Loading/Loading";
+// import Loading from "../components/NewDesignComp/Loading/Loading";
 
 //---FETCHING SMART CONTRACT
 const fetchContract = (signerOrProvider) =>
@@ -633,9 +633,8 @@ export const NFTMarketplaceProvider = ({ children }) => {
         transactions,
       }}
     >
-      {load ? <Loading /> : children}
-      {/* {children} */}
-      {/* {children} */}
+      {/* {load ? <Loading /> : children} */}
+      {children}
     </NFTMarketplaceContext.Provider>
   );
 };
