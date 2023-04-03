@@ -26,6 +26,7 @@ import {
   Explore,
   GroupAdd,
   KeyboardArrowRight,
+  Logout,
   Public,
 } from "@mui/icons-material";
 
@@ -110,6 +111,10 @@ function TabPanel(props) {
     handleClosed();
     connectTezos();
   };
+
+  //logout function
+
+  const logout = useUserData((state) => state.logout);
 
   return (
     <div
@@ -392,7 +397,15 @@ function TabPanel(props) {
                 marginBottom: "1rem",
               }}
             >
-              <span style={{ fontSize: "14px" }}>User Info</span>
+              <span
+                style={{
+                  fontSize: "14px",
+                  color: "var(--font-color-unfocused)",
+                  transition: "color 0.2s ease-in-out",
+                }}
+              >
+                User Info
+              </span>
               <span onClick={handleClose}>
                 <Close
                   sx={{
@@ -425,8 +438,13 @@ function TabPanel(props) {
               <ListItemText>Add space after paragraph</ListItemText>
             </MenuItem>
             <Divider />
-            <MenuItem>
-              <ListItemText>Custom spacing...</ListItemText>
+            <MenuItem
+              onClick={() => {
+                logout();
+              }}
+            >
+              <ListItemText style={{ fontSize: "1.1rem" }}>Logout</ListItemText>
+              <Logout style={{ fontSize: "1.1rem" }} />
             </MenuItem>
           </MenuList>
         </Menu>
