@@ -61,11 +61,11 @@
   border-radius: 2rem;
   font-size: 1.1rem;
   color: black;
-  cursor: pointer;
   transition: all 0.2s ease-in;
   /* box-shadow: #3c8b5f; */
   margin: 50px;
 }
 .button:hover {
+  cursor: pointer;
   color: var(--border-color);
 }

@@ -435,11 +435,11 @@ const Form = () => {
             display: "flex",
           }}
         >
-          <Button className="buton" handleClick={() => onSubmit()}>
+          <Button className="button-press" handleClick={() => onSubmit()}>
             Update profile
           </Button>
           <Button
-            className="button"
+            className="button-press"
             handleClick={() => {
               sessionStorage.clear();
               alert("Token deleted!!!");
