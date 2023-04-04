@@ -435,7 +435,7 @@ const Form = () => {
             display: "flex",
           }}
         >
-          <Button className="button" handleClick={() => onSubmit()}>
+          <Button className="buton" handleClick={() => onSubmit()}>
             Update profile
           </Button>
           <Button
