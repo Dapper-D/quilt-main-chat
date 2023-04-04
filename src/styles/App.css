@@ -54,7 +54,7 @@
   }
 }
 
-.buton {
+.button-press {
   background-color: var(--border-color);
   padding: 1rem 2rem;
   border: 1px solid var(--border-color);
@@ -65,7 +65,7 @@
   /* box-shadow: #3c8b5f; */
   margin: 50px;
 }
-.button:hover {
+.button-press:hover {
   cursor: pointer;
   color: var(--border-color);
 }
