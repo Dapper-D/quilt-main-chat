@@ -36,6 +36,7 @@ import MenuItem from "@mui/material/MenuItem";
 
 import { connectTez } from "../../component/Context/tezos";
 import { useUserData } from "../../component/Context/useUserData";
+import Profile from "./Profile";
 
 // import { NFTMarketplaceContext } from "../../component/Context/NFTMarketplaceContext";
 
@@ -500,6 +501,7 @@ export default function VerticalTabs() {
         // bgcolor: "background.paper",
         display: "flex",
         height: "100vh",
+        // overflowx: "hidden",
         backgroundColor: "var(--background-color)",
       }}
     >
@@ -696,7 +698,8 @@ export default function VerticalTabs() {
       </TabPanel>
       <TabPanel value={value} index={5}>
         {/* <Profile /> */}
-        profile
+
+        <Profile />
       </TabPanel>
       <TabPanel value={value} index={6}>
         Item Six

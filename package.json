@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@apollo/client": "^3.7.11",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@mui/icons-material": "^5.11.11",
@@ -26,6 +27,7 @@
     "ethers": "^5.7.2",
     "framer-motion": "^7.2.1",
     "global": "^4.4.0",
+    "graphql": "^16.6.0",
     "ipfs-http-client": "^60.0.0",
     "next": "13.2.4",
     "nft.storage": "^7.0.3",
