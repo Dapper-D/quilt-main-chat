@@ -6,6 +6,8 @@
   --background-color: rgb(18, 18, 20);
   --menu-background: rgb(24, 24, 27);
   --border-color: rgb(0, 230, 105);
+  --button-color: rgb(24, 27, 34);
+  --modal-color: #303036;
 }
 
 ::-webkit-scrollbar {
@@ -66,6 +68,55 @@
   margin: 50px;
 }
 .button-press:hover {
+  background-color: var(--background-color);
   cursor: pointer;
   color: var(--border-color);
+}
+
+.phrase {
+  margin-right: 1rem;
+  background-color: var(--border-color);
+  padding: 0.5rem 2rem;
+  border: 1px solid var(--border-color);
+  border-radius: 2rem;
+  font-size: 1.1rem;
+  color: black;
+  transition: all 0.2s ease-in;
+}
+.phrase:hover {
+  background-color: var(--background-color);
+  cursor: pointer;
+  color: var(--border-color);
+}
+
+.profile-btn {
+  background-color: var(--button-color);
+  border-radius: 6px;
+  padding: 0.5rem;
+  border: none;
+  width: 10rem;
+  height: 3rem;
+  font-size: 1rem;
+  text-align: center;
+  color: var(--font_color_focused);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.modal-box-2 {
+  height: 26rem;
+  width: 30rem;
+  margin-left: 1rem;
+  border-left: 1px solid var(--modal-color);
+  padding-left: 2rem;
+}
+
+.display {
+  font-weight: 900;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  padding-top: 0.5rem;
 }

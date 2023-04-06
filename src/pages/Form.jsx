@@ -442,7 +442,6 @@ const Form = () => {
             class="button-press"
             handleClick={() => {
               sessionStorage.clear();
-              alert("Token deleted!!!");
             }}
           >
             Reset token
